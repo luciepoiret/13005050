@@ -1,0 +1,155 @@
+Caractéristiques estudiantines :
+-Nom / prénom > String.
+-Sérieux > entier, mesuré de 1 à 10. Utiliser booléen.
+-Studieux > entier, mesuré de 1 à 10. Utiliser booléen.
+-Diligent > entier, mesuré de 1 à 10. Utiliser booléen.
+-Ponctuel > booléen ; true / false.
+-Erasmus / étranger > booléen ; true / false.
+
+
+package DM2;
+	public public class étudiant {
+	private String nom;
+	private String prénom;
+	private boolean en_retard;
+	private int heure_arrivee;
+	private int erasmus_ou_etranger = 1;
+	private int je_suis_etranger_ou_erasmus = 1;
+	private int je_suis_serieux;
+	private int je_suis_studieux;
+	private int je_suis_diligent;
+	}
+	public etu_nom_prenom(String n, String p) {
+	nom = n;
+	prénom = p;
+}
+	public Etudiant() {
+	}
+	
+	
+	public void presente() {
+		System.out.println("Je m'appelle " + p + " " + n + "et je suis étudiant à l'université Paris IV Sorbonne")
+	}
+	
+	public boolean ponctuel() {
+	if (heure_arrivee <= int 9,30) this.en_retard = true;
+	}
+	public void lire_ponctuel() {
+	heure_arrivee = Keyboard.getInt("Entrez l'heure d'arrivée ( par exemple "10" pour "10h"");
+	} 
+	
+	public boolean erasmus() {
+	if (je_suis_etranger_ou_erasmus == erasmus_ou_etranger) return true;
+	else return false;
+	}
+	public void lire_erasmus() {
+	input = Keyboard.getString("Êtes vous étudiant erasmus / étranger ? (répondez par "oui" ou "non)");
+	if input.compareTo("oui") { je_suis_etranger_ou_erasmus = 1;
+		} else { je_suis_etranger_ou_erasmus = 0;
+			}
+	}
+	
+	public boolean serieux() {
+	if (je_suis_serieux >= 5) return true;
+	else return false;
+	}
+	public void lire_serieux() {
+	je_suis_serieux = Keyboard.getInt("Entrez le degré de sérieux de l'étudiant (sur une échelle de 0 à 10)");
+	}
+	
+	public boolean studieux() {
+	if (je_suis_studieux >= 5) return true;
+	else return false;
+	}
+	public void lire_studieux() {
+	je_suis_studieux = Keyboard.getInt("Entrez le degré de studiosité de l'étudiant (sur une échelle de 0 à 10) ");
+	}
+	
+	public boolean diligent() {
+	if (je_suis_diligent >= 5) return true;
+	else return false;
+	}
+	public void lire_diligence() {
+	je_suis_diligent = Keyboard.getInt("Entrez le degré de diligence de l'étudiant (sur une échelle de 0 à 10)");
+	}
+}
+
+package DM2;
+
+public class DM2 {
+
+	public static void main(String[] args) {
+		Etudiant f = new Etudiant();
+		Promotion p2019 = new Promotion();
+		p2019.ajout_etudiant(f);
+			f.presente();
+			f.diligent();
+			f.studieux();
+			f.serieux();
+			f.erasmus();
+			f.ponctuel();
+		p2019.count_serieux();
+		p2019.count_studieux();
+		p2019.count_erasmus();
+		p2019.count_ponctuel();
+		p2019.count_diligent();
+		
+		System.out.print("Voici le nombre d'étudiants sérieux :" + p2019.count_serieux);
+		System.out.print("Voici le nombre d'étudiants studieux :" + p2019.count_studieux);
+		System.out.print("Voici le nombre d'étudiants erasmus ou étrangers :" + p2019.count_erasmus);
+		System.out.print("Voici le nombre d'étudiants ponctuels :" + p2019.count_ponctuel);
+		System.out.print("Voici le nombre d'étudiants diligents :" + p2019.count_diligent);
+		System.out.print("En vous souhaitant courage et détermination pour les examens de fin d'années ! Courage et travaillez bien !")
+	}
+
+}
+Public class Promotion {
+		Arraylist<Etudiant> promotion;
+	int nbr_etudiant_serieux;
+	int nbr_etudiant_studieux;
+	int nbr_etudiant_erasmus;
+	int nbr_etudiant_ponctuel;
+	int nbr_etudiant_diligent;
+	
+	Public Promotion() {
+	}
+	Public void ajout_etudiant(Etudiant e){
+		promotion.add(e);
+	}
+	
+	Public void calcul_nbr_etudiant_serieux() {
+	int count_serieux;
+		for (Etudiant e: promotion) {
+			if (e.serieux()){count_serieux++;}
+			}
+			return count_serieux;
+	}
+	Public void calcul_nbr_etudiant_studieux() {
+	int count_studieux;
+		for (Etudiant e: promotion) {
+			if (e.studieux()){count_studieux++;}
+			}
+			return count_studieux;
+	}
+	Public void calcul_nbr_etudiant_erasmus() {
+	int count_erasmus;
+		for (Etudiant e: promotion) {
+			if (e.erasmus()){count_erasmus++;}
+			}
+			return count_erasmus;
+	}
+	Public void calcul_nbr_etudiant_ponctuel() {
+	int count_ponctuel;
+		for (Etudiant e: promotion) {
+			if (e.ponctuel()){count_ponctuel++;}
+			}
+			return count_ponctuel;
+	}
+	Public void calcul_nbr_etudiant_diligent() {
+	int count_diligent;
+		for (Etudiant e: promotion) {
+			if (e.diligent()){count_diligent++;}
+			}
+			return count_diligent;
+	}	
+}
